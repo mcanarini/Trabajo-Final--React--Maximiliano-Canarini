@@ -1,0 +1,42 @@
+.CardItem{
+    color: black;
+    text-align: center;
+    position: relative;
+    margin: 25px 15px;
+    padding: 20px 25px;
+    width: 420px;
+    height: 500px;
+    border-radius: 4px;
+    background-color:#7c3b8e;
+    opacity: 80%;
+    overflow: hidden;    
+    transition: all ease-in 0.25s;
+    cursor: pointer;
+  }
+  
+  .Header{
+    font-size: large;
+  }
+  
+  .Item.Header{
+    padding: 16px 2px;
+    margin: 0px;
+  }
+  
+  .item-card_img{
+    width: 320px;
+    height: 260px;
+    border-radius: 4px;
+  }
+  
+  
+  .CardItem:hover {
+    transform: translate(0px, -5px);
+    box-shadow: 5px 5px 9px 0px rgba(171, 171, 171, 0.3),
+      -3px -3px 18px 0px rgba(255, 255, 255, 0.95);
+  
+    cursor: pointer;
+  }
+  
+  
+  

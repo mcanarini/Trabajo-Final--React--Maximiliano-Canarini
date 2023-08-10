@@ -1,0 +1,16 @@
+.Control{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    
+}
+
+.Button{
+    height: 30px;
+    background-color: #231c43;
+    color: #e89a25;
+}
+
+.Number{
+    height: 30px;
+}
