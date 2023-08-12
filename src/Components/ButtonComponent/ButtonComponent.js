@@ -1,4 +1,4 @@
-import "./button.css";
+import "./ButtonComponent.css";
 
 function ButtonComponent(props) {
   const { children, colorFondo } = props;

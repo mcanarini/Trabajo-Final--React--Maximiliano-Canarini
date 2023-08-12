@@ -1,5 +1,7 @@
 import { useParams } from 'react-router-dom'
+import { useContext } from 'react'
 import { useState, useEffect } from 'react'
+import { CartContext } from '../Context/CartContext'
 import { getProductById } from '../../AsyncMock'
 import ItemDetail from '../ItemDetail/ItemDetail'
 
@@ -7,25 +9,25 @@ const ItemDetailConteiner = () => {
     const [Product, SetProduct] = useState({})
     const [isAddedToCart, setIsAddedToCart] = useState(false)
 
-    const { ItemId } = useParams()
+    const { id } = useParams()
 
-    const { addToCart, getItemInCart}  = useContext (cartContext)
+    const { addToCart, getItemInCart}  = useContext (CartContext)
 
     const itemInCart = getItemInCart(id)
 
     const maxItems = itemInCart
-    ? product.stock - itemInCart.count
-    : product.stock
+    ? Product.stock - itemInCart.count
+    : Product.stock
 
 console.log (maxItems)
 
     useEffect(() => {
         async function requestProduct() {
-            const respuesta = await getProductData(id);
-            setProduct(respuesta)
+            const respuesta = await getProductById(id);
+           SetProduct(respuesta)
         }
 
-        requestProduct(respuesta)
+        requestProduct()
     },[id])
 
 
@@ -37,7 +39,7 @@ console.log (maxItems)
 
     return (
         <div className='ItemDetailContainer'>
-            <ItemDetail {...Products} />
+            <ItemDetail {...Product} />
         </div>
     )
 }

@@ -4,8 +4,7 @@ import NavBar from './Components/Navbar/NavBar';
 import { CartContextProvider } from './Components/Context/CartContext';
 import CartContainer from './Components/CartConteiner/CartConteiner';
 import ItemListConteiner from './Components/ItemListConteiner/ItemListConteiner';
-import ItemCount from './Components/ItemCount/ItemCount';
-//import ItemDetailConteiner from './components/ItemDetailConteiner/ItemDetailContainer';
+import ItemDetailConteiner from './Components/ItemDetailConteiner/ItemDetailContainer';
 
 
 function App() {
@@ -16,7 +15,7 @@ function App() {
         <Routes>
           <Route path='/' element={<ItemListConteiner />} />
           <Route path='/category/:categoryId' element={<ItemListConteiner />} />
-          <Route path='/Item/:ItemId' element={<ItemListConteiner />} />
+          <Route path='/Item/:ItemId' element={<ItemDetailConteiner />} />
           <Route path='*' element={<h1>404 NOT FOUND</h1>} />
         </Routes>
       </BrowserRouter>

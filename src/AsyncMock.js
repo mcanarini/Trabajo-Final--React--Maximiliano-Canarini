@@ -110,11 +110,15 @@ export const getProducts = () => {
 }
 
 export const getProductById = (ProductId) => {
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            resolve(Products.find(prod => prod.id === ProductId))
-        }, 1000)
-    })
+    return new Promise((resolve, reject) => {
+        const productRequested = Products.find(
+            (Item) => Item.id === parseInt(ProductId)
+          );
+      
+          setTimeout(() => {
+            resolve(productRequested);
+          }, 2000);
+        });
 }
 
 export const getProductsByCategory = (category) => {

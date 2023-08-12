@@ -1,6 +1,6 @@
-  .CardItem{
+  .CardItem {
     width: 300px;
-    height: 800px;
+    height: 500px;
     color: black;
     background-color: white;
     opacity: 90%;
@@ -10,39 +10,37 @@
     flex-direction: column;
     justify-content: center;
     gap: 10px;
-  
-}
-  
-  .Header{
+
+  }
+
+  .Header {
     font-size: large;
   }
-  
-  .ItemImg img{
+
+  .ItemImg img {
     width: 280px;
     height: 300px;
     object-fit: cover;
     display: flex;
     justify-content: center;
     border-radius: 10px;
-    
+
     padding-left: 10px;
   }
 
-  
   .CardItem:hover {
     transform: translate(0px, -5px);
     box-shadow: 5px 5px 9px 0px rgba(171, 171, 171, 0.3),
       -3px -3px 18px 0px rgba(255, 255, 255, 0.95);
-  
+
     cursor: pointer;
   }
-  
-  .Info{
-    height: 140px;
-   
-  }
 
-  .CardItem_price{
+  .CardItem_price {
     color: #444444;
     font-weight: bold;
+  }
+
+  .InfoFooter button{
+    background-color: #7c3b8e;
   }
