@@ -1,7 +1,8 @@
 import { useNavigate } from "react-router-dom";
-import { cartContext } from "../../context/cartContext";
-import { createOrder } from "../../services/firebase";
+import { CartContext } from "../../Context/CartContext";
+import { createOrder } from "../../Services/Firebase";
 import { useContext, useState } from "react";
+import Swal from 'sweetalert2'
 
 function Checkout() {
   const [buyer, setBuyer] = useState({
@@ -11,7 +12,7 @@ function Checkout() {
   });
 
   const navigate = useNavigate();
-  const { cart, getTotalPriceInCart } = useContext(cartContext);
+  const { cart, getTotalPriceInCart } = useContext(CartContext);
 
   async function handleCheckout(evt) {
     evt.preventDefault();
@@ -27,14 +28,17 @@ function Checkout() {
       console.log(`Gracias por tu compra, tu numero de orden es ${idOrder}`);
       navigate(`/order-confirmation/${idOrder}`);
     } catch (error) {
-      alert(`No se pudo realizar la compra ${error.message}`);
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'No se pudo realizar la compra, por favor, verifique sus datos',
+      })
     }
   }
 
   function onInputChange(evt) {
     const value = evt.target.value;
     const field = evt.target.name;
-    //buyer["firstname"] -> buyer.firstname
     const newState = { ...buyer };
     newState[field] = value;
     setBuyer(newState);
@@ -88,11 +92,7 @@ function Checkout() {
       </div>
 
       <button
-        disabled={
-          !(buyer.firstname !== "" && buyer.lastname !== "" && buyer.age !== "")
-        }
-        onClick={handleCheckout}
-      >
+        disabled={!(buyer.firstname !== "" && buyer.lastname !== "" && buyer.age !== "")} onClick={handleCheckout}>
         Confirmar Compra
       </button>
       <button onClick={resetForm}>Cancelar</button>

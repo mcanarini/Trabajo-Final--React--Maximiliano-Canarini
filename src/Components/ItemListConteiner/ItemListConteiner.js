@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from "react"
 import { useParams } from 'react-router-dom'
-import { getProductsByCategory, getProducts } from '../../AsyncMock'
+import { getProducts, getProductsByCategory } from "../../Services/Firebase"
 import ItemList from "../ItemList/ItemList"
 import { DotSpinner } from '@uiball/loaders'
 
@@ -9,16 +9,13 @@ const ItemListConteiner = ({ greeting }) => {
     const [Products, SetProducts] = useState([])
     const [isLoading, setIsLoading] = useState(true)
    
-
     const { categoryId } = useParams()
-
-    
 
     useEffect(() => {
         const asyncFunc = categoryId ? getProductsByCategory : getProducts
         asyncFunc(categoryId)
             .then(Response => {
-                SetProducts(Response)
+                getProducts(Response)
             })
             .catch(error => {
                 console.error(error)

@@ -1,39 +1,36 @@
 import { useParams } from 'react-router-dom'
 import { useContext } from 'react'
 import { useState, useEffect } from 'react'
-import { CartContext } from '../Context/CartContext'
-import { getProductById } from '../../AsyncMock'
+import { CartContext } from '../../Context/CartContext'
+import { getProductById } from '../../Services/Firebase'
 import ItemDetail from '../ItemDetail/ItemDetail'
 
 const ItemDetailConteiner = () => {
-    const [Product, SetProduct] = useState({})
-    const [isAddedToCart, setIsAddedToCart] = useState(false)
+    const [Product, SetProduct] = useState({});
+    const [isAddedToCart, setIsAddedToCart] = useState(false);
+    const { id } = useParams();
+    const { addToCart, getItemInCart } = useContext(CartContext);
 
-    const { id } = useParams()
-
-    const { addToCart, getItemInCart}  = useContext (CartContext)
-
-    const itemInCart = getItemInCart(id)
+    const itemInCart = getItemInCart(id);
 
     const maxItems = itemInCart
-    ? Product.stock - itemInCart.count
-    : Product.stock
+        ? Product.stock - itemInCart.count
+        : Product.stock
 
-console.log (maxItems)
 
     useEffect(() => {
         async function requestProduct() {
             const respuesta = await getProductById(id);
-           SetProduct(respuesta)
+            SetProduct(respuesta)
         }
 
         requestProduct()
-    },[id])
+    }, [id])
 
 
-    function handleAddToCart (clickCount){
-        addToCart (Product, clickCount)
-        alert (`Producto agregado al Carrito, cantidad :${clickCount}`)
+    function handleAddToCart(clickCount) {
+        addToCart(Product, clickCount)
+        alert(`Producto agregado al Carrito, cantidad :${clickCount}`)
         setIsAddedToCart(true)
     }
 
