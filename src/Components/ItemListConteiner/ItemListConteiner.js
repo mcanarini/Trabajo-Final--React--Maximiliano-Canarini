@@ -15,7 +15,7 @@ const ItemListConteiner = ({ greeting }) => {
         const asyncFunc = categoryId ? getProductsByCategory : getProducts
         asyncFunc(categoryId)
             .then(Response => {
-                getProducts(Response)
+                SetProducts(Response)
             })
             .catch(error => {
                 console.error(error)

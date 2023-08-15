@@ -1,8 +1,9 @@
 import React from "react";
 import { useContext } from "react";
-import { cartContext } from "../../context/cartContext";
-import { createOrder } from "../../services/firebase";
+import { CartContext, CartContextProvider } from "../../Context/CartContext";
+import { createOrder } from "../../Services/Firebase";
 import { Link, useNavigate } from "react-router-dom";
+import ButtonComponent from "../ButtonComponent/ButtonComponent";
 
 
 function CartItem() {
@@ -23,7 +24,9 @@ function CartItem() {
         ))}
         <br />
         <div>Total de la compra: $999</div>
-        <Link to="/checkout">Comprar</Link>
+        <Link to="/checkout">
+          <ButtonComponent>Comprar</ButtonComponent>
+          </Link>
       </div>
     );
   }

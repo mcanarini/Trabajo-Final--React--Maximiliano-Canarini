@@ -1,8 +1,9 @@
 import React from "react";
 import { useContext } from "react";
-import { CartContext } from "../../Context/CartContext";
+import { CartContext, CartContextProvider } from "../../Context/CartContext";
 import { createOrder } from "../../Services/Firebase";
 import { Link, useNavigate } from "react-router-dom";
+import ButtonComponent from "../ButtonComponent/ButtonComponent";
 
 function CartContainer() {
   const { cart, removeItem } = useContext(CartContext);
@@ -22,8 +23,10 @@ function CartContainer() {
       ))}
       <br />
       <div>Total de la compra: $999</div>
-      <Link to="/checkout">Comprar</Link>
-    </div>
+        <Link to="/checkout">
+          <ButtonComponent>Comprar</ButtonComponent>
+          </Link>
+      </div>
   );
 }
 

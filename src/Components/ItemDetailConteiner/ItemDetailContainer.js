@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { CartContext } from '../../Context/CartContext'
 import { getProductById } from '../../Services/Firebase'
 import ItemDetail from '../ItemDetail/ItemDetail'
+import Swal from 'sweetalert2'
 
 const ItemDetailConteiner = () => {
     const [Product, SetProduct] = useState({});
@@ -23,20 +24,19 @@ const ItemDetailConteiner = () => {
             const respuesta = await getProductById(id);
             SetProduct(respuesta)
         }
-
         requestProduct()
     }, [id])
 
 
     function handleAddToCart(clickCount) {
         addToCart(Product, clickCount)
-        alert(`Producto agregado al Carrito, cantidad :${clickCount}`)
+        Swal.fire({position: 'top-end', icon: 'success', title: '¡Producto agregado al Carrito!', showConfirmButton: false, timer: 1500 })
         setIsAddedToCart(true)
     }
 
     return (
         <div className='ItemDetailContainer'>
-            <ItemDetail {...Product} />
+            <ItemDetail product={Product} />
         </div>
     )
 }

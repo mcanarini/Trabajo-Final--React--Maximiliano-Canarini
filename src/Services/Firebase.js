@@ -251,13 +251,12 @@ async function _exportProductsWithBatch() {
   productos.forEach(producto => {
     const newId = producto.id
     delete producto.id;
-    const newDoc = doc(db, "Products", `1${newId}`)
+    const newDoc = doc(db, "Products", `1${newId}`);
     batch.set(newDoc, producto);
   })
 
-  const data = await batch.commit()
-  console.log("Listo!", data)
+  const data = await batch.commit();
 }
 
-export {getProducts, getProductById, getProductsByCategory, createOrder, getOrder, _exportProducts};
+export {getProducts, getProductById, getProductsByCategory, createOrder, getOrder, _exportProducts, _exportProductsWithBatch};
 

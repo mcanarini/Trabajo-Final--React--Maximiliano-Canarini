@@ -25,7 +25,6 @@ function Checkout() {
 
     try {
       const idOrder = await createOrder(orderData);
-      console.log(`Gracias por tu compra, tu numero de orden es ${idOrder}`);
       navigate(`/order-confirmation/${idOrder}`);
     } catch (error) {
       Swal.fire({

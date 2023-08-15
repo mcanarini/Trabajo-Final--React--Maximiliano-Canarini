@@ -1,8 +1,8 @@
-.Control{
-    display: flex;
+.Counter{
+    display: "flex";
     flex-direction: row;
-    justify-content: space-around;
-    
+    align-items: center;
+    justify-content: center;
 }
 
 .Button{
