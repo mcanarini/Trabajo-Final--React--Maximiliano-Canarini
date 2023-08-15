@@ -1,7 +1,21 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Datos
+Estudiante: Maximiliano Canarini Suarez
 
+LinkedIn: https://www.linkedin.com/in/maximiliano-canarini/
+
+GitHub: https://github.com/mcanarini
+
+Curso: React / Coderhouse
+
+Comisión: 43305
+
+Profesor: Santiago Salkin
+
+**Puedes ver el Proyecto en Vercel: https://trabajo-final-react-maximiliano-canarini.vercel.app/**
+
+En este proyecto se utilizó BOOTSTRAP, SWEETALERT 2, REACT-ROUTER-DOM.
 ## Available Scripts
 
 In the project directory, you can run:
